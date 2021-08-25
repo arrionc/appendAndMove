@@ -1,4 +1,4 @@
-# Concatenates data from workbooks in the 'Collection date updated in Netsuite' folder to the master.xlsx in the 'Requests in Transit' folder.
+# Concatenates data from excel workbooks in the 'Collection date updated in Netsuite' folder to the master.xlsx in the 'Requests in Transit' folder.
 # Then it moves the excel files to the 'Request in Transit' folder.
 
 # The program uses the following modules
@@ -11,6 +11,7 @@ from openpyxl.utils.cell import column_index_from_string, get_column_letter, coo
 # os.chdir('/Volumes/GoogleDrive/Shared drives/Foreign Purchasing/Operations/Receiving Lists/Requests pending confirmation/Collection date updated in NetSuite')
 path = '/Volumes/GoogleDrive/Shared drives/Foreign Purchasing/Operations/Receiving Lists/Requests pending confirmation/Collection date updated in NetSuite'
 
+# Loop through the workbooks in the directory
 for filename in os.listdir(path):
     sourceWorkbook = (os.path.join(path, filename))
     print('adding ' + filename + ' to master sheet')
@@ -48,7 +49,7 @@ for filename in os.listdir(path):
         print('.......')
     print(str(count) + ' rows have been added')    
 
-
+# Move workbooks from one directory to another
 source = '/Volumes/GoogleDrive/Shared drives/Foreign Purchasing/Operations/Receiving Lists/Requests pending confirmation/Collection date updated in NetSuite/'
 dest = '/Volumes/GoogleDrive/Shared drives/Foreign Purchasing/Operations/Receiving Lists/Requests in Transit/'
 for filename in os.listdir('/Volumes/GoogleDrive/Shared drives/Foreign Purchasing/Operations/Receiving Lists/Requests pending confirmation/Collection date updated in NetSuite'):
